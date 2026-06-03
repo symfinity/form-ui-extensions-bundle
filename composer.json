@@ -1,0 +1,32 @@
+{
+    "name": "symfinity/form-ui-extensions-bundle",
+    "description": "Theme-agnostic Symfony Form UI extensions for metadata, novalidate strategy, and optional uppercase normalization",
+    "license": "MIT",
+    "type": "symfony-bundle",
+    "require": {
+        "php": ">=8.2",
+        "symfony/config": "^6.4 || ^7.0 || ^8.0",
+        "symfony/dependency-injection": "^6.4 || ^7.0 || ^8.0",
+        "symfony/form": "^6.4 || ^7.0 || ^8.0",
+        "symfony/http-kernel": "^6.4 || ^7.0 || ^8.0",
+        "symfony/options-resolver": "^6.4 || ^7.0 || ^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5 || ^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Symfinity\\FormUiExtensionsBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Symfinity\\FormUiExtensionsBundle\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit -c phpunit.xml.dist"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
