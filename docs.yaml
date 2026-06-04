@@ -1,0 +1,30 @@
+composer_name: symfinity/form-ui-extensions-bundle
+package_major: "1.x"
+
+sidebar:
+  - configuration
+  - installation
+  - quickstart
+  - reference
+  - troubleshooting
+  - upgrade
+  - usage
+
+slices:
+  - symfony: "7.4"
+    sources:
+      - README.md
+      - configuration.md
+      - contracts/button-metadata-options.md
+      - contracts/core-domain.md
+      - contracts/form-view-vars-surface.md
+      - contracts/novalidate-strategy.md
+      - contracts/uppercase-normalization.md
+      - index.md
+      - installation.md
+      - quickstart.md
+      - reference.md
+      - troubleshooting.md
+      - upgrade.md
+      - usage.md
+      - verification.md
