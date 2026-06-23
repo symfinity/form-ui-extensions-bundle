@@ -1,0 +1,375 @@
+{% use "form_div_layout.html.twig" %}
+
+{% block form_start -%}
+    {%- set form_ui = form.vars.symfinity_form_ui|default({}) -%}
+    {%- if form is rootform -%}
+        <form name="{{ name }}" method="{{ method|lower }}" action="{{ action }}"{% if form_ui.novalidate|default(false) %} novalidate="novalidate"{% endif %}{% for attrname, attrvalue in attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}
+        {%- if form_ui.wizard.enabled|default(false) -%}
+            data-ui-wizard="1"
+            data-ui-wizard-step-count="{{ form_ui.wizard.step_count|default(0) }}"
+            data-ui-wizard-initial-step="{{ form_ui.wizard.initial_step|default(1) }}"
+            {%- if form_ui.wizard.linear|default(false) %} data-ui-wizard-linear="1"{% endif -%}
+        {%- endif -%}
+        >
+        {%- if form_ui.errors.has_errors|default(false) -%}
+            <div data-ui-part="error-summary" role="alert">
+                {%- for item in form_ui.errors.summary|default([]) -%}
+                    <a href="#{{ item.target_id }}" data-ui-error-target="{{ item.target_id }}">{{ item.label }}: {{ item.message }}</a>
+                {%- endfor -%}
+                {%- for item in form_ui.errors.global|default([]) -%}
+                    <p id="{{ item.target_id }}">{{ item.message }}</p>
+                {%- endfor -%}
+            </div>
+        {%- endif -%}
+    {%- else -%}
+        {{- parent() -}}
+    {%- endif -%}
+{%- endblock form_start %}
+
+{% block form_end -%}
+    {%- if form is rootform -%}
+        </form>
+    {%- else -%}
+        {{- parent() -}}
+    {%- endif -%}
+{%- endblock form_end %}
+
+{% block form_label -%}
+{%- endblock form_label %}
+
+{% block form_help -%}
+{%- endblock form_help %}
+
+{% block form_errors -%}
+{%- endblock form_errors %}
+
+{% block form_row -%}
+    {%- set form_ui = form.vars.symfinity_form_ui|default({}) -%}
+    {%- set field_group = form_ui.field_group|default({}) -%}
+    {%- set show_label = label is not same as(false) ? label : null -%}
+    {%- set show_hint = help is not same as(false) and help is not empty ? help : null -%}
+    {%- set error_message = errors|length > 0 ? errors[0].message : null -%}
+
+    {%- if field_group.enabled|default(false) -%}
+        <fieldset{% if field_group.group_id|default(false) %} id="{{ field_group.group_id }}"{% endif %}{% if field_group.invalid|default(false) %} data-ui-state="invalid"{% endif %} data-ui-role="fieldset">
+            {%- if field_group.legend|default(false) -%}
+                <legend>{{ field_group.legend }}</legend>
+            {%- endif -%}
+            {{- form_widget(form, {label: false, help: false, errors: []}) -}}
+        </fieldset>
+    {%- else -%}
+        <div
+            data-ui-orientation="vertical"
+            data-ui-role="{{ symfinity_form_ui_theme_wrapper == 'floating-field' ? 'floating-field' : 'field' }}"
+            {% if not valid or error_message %}data-ui-state="invalid"{% endif %}
+        >
+            {%- if show_label -%}
+                <label data-ui-part="header" for="{{ id }}" id="field-label-{{ id }}">{{ show_label }}</label>
+            {%- endif -%}
+            {{- form_widget(form, {label: false, help: false, errors: []}) -}}
+            {%- if error_message -%}
+                <p data-ui-part="footer" id="field-error-{{ id }}" role="alert">{{ error_message }}</p>
+            {%- elseif show_hint -%}
+                <p data-ui-part="footer" id="field-hint-{{ id }}">{{ show_hint }}</p>
+            {%- endif -%}
+        </div>
+    {%- endif -%}
+{%- endblock form_row %}
+
+{% block checkbox_row -%}
+    <div data-ui-orientation="vertical" data-ui-role="field" {% if not valid %}data-ui-state="invalid"{% endif %}>
+        {{- form_widget(form, {label: false, help: false, errors: []}) -}}
+        {%- if label is not same as(false) -%}
+            <label for="{{ id }}">{{ label }}</label>
+        {%- endif -%}
+    </div>
+{%- endblock checkbox_row %}
+
+{% block radio_row -%}
+    <div data-ui-orientation="vertical" data-ui-role="field" {% if not valid %}data-ui-state="invalid"{% endif %}>
+        {{- form_widget(form, {label: false, help: false, errors: []}) -}}
+        {%- if label is not same as(false) -%}
+            <label for="{{ id }}">{{ label }}</label>
+        {%- endif -%}
+    </div>
+{%- endblock radio_row %}
+
+{% block button_row -%}
+    {{- form_widget(form) -}}
+{%- endblock button_row %}
+
+{% block collection_row -%}
+    {%- set form_ui = form.vars.symfinity_form_ui|default({}) -%}
+    {%- set collection = form_ui.collection|default({}) -%}
+    <div
+        data-ui-collection="1"
+        {% if collection.allow_add|default(false) %}data-ui-collection-allow-add="1"{% endif %}
+        {% if collection.allow_delete|default(false) %}data-ui-collection-allow-delete="1"{% endif %}
+        data-ui-collection-count="{{ collection.count|default(0) }}"
+        data-ui-collection-prototype-name="{{ collection.prototype_name|default('__name__') }}"
+    >
+        {%- if label is not same as(false) -%}
+            <span data-ui-part="collection-label">{{ label }}</span>
+        {%- endif -%}
+        {{- block('form_rows') -}}
+    </div>
+{%- endblock collection_row %}
+
+{% block collection_widget -%}
+    {%- if prototype is defined and not prototype.rendered -%}
+        {%- set prototype_entry = prototype.vars.symfinity_form_ui.collection|default({}) -%}
+        <div
+            data-ui-collection-prototype="1"
+            data-prototype="{{ form_row(prototype)|e('html_attr') }}"
+            {% if prototype_entry.is_prototype|default(true) %}data-ui-collection-is-prototype="1"{% endif %}
+        ></div>
+    {%- endif -%}
+    {{- block('form_rows') -}}
+{%- endblock collection_widget %}
+
+{% block collection_entry_row -%}
+    {%- set entry_ui = form.vars.symfinity_form_ui|default({}) -%}
+    {%- set collection = entry_ui.collection|default({}) -%}
+    <div
+        data-ui-collection-row="1"
+        id="{{ collection.row_id|default(id) }}"
+        data-ui-collection-row-index="{{ collection.row_index|default(0) }}"
+        {% if collection.is_prototype|default(false) %}data-ui-collection-is-prototype="1"{% endif %}
+        {% if collection.allow_row_delete|default(false) %}data-ui-collection-allow-row-delete="1"{% endif %}
+    >
+        {{- form_widget(form) -}}
+    </div>
+{%- endblock collection_entry_row %}
+
+{% block form_widget_simple -%}
+    {{- block('form_widget_simple', 'form_div_layout.html.twig') -}}
+{%- endblock form_widget_simple %}
+
+{% block hidden_widget -%}
+    {{- block('hidden_widget', 'form_div_layout.html.twig') -}}
+{%- endblock hidden_widget %}
+
+{% block text_widget -%}
+    {%- set block_suffix = null -%}
+    {%- for prefix in block_prefixes -%}
+        {%- if prefix starts with '_form_' -%}
+            {%- set block_suffix = prefix -%}
+        {%- endif -%}
+    {%- endfor -%}
+    {%- if block_suffix is not null and block_suffix != '_form_' ~ name -%}
+        {{- block('form_widget_simple', 'form_div_layout.html.twig') -}}
+    {%- else -%}
+        <twig:Input
+            type="text"
+            value="{{ value }}"
+            disabled="{{ disabled }}"
+            invalid="{{ not valid }}"
+            id="{{ id }}"
+            name="{{ full_name }}"
+            placeholder="{{ attr.placeholder|default('') }}"
+        />
+    {%- endif -%}
+{%- endblock text_widget %}
+
+{% block textarea_widget -%}
+    <twig:Textarea
+        disabled="{{ disabled }}"
+        invalid="{{ not valid }}"
+        id="{{ id }}"
+        name="{{ full_name }}"
+        placeholder="{{ attr.placeholder|default('') }}"
+    >{{ value }}</twig:Textarea>
+{%- endblock textarea_widget %}
+
+{% block email_widget -%}
+    <twig:Input type="email" value="{{ value }}" disabled="{{ disabled }}" invalid="{{ not valid }}" id="{{ id }}" name="{{ full_name }}" />
+{%- endblock email_widget %}
+
+{% block password_widget -%}
+    <twig:Input type="password" value="{{ value }}" disabled="{{ disabled }}" invalid="{{ not valid }}" id="{{ id }}" name="{{ full_name }}" />
+{%- endblock password_widget %}
+
+{% block search_widget -%}
+    <twig:Input type="search" value="{{ value }}" disabled="{{ disabled }}" invalid="{{ not valid }}" id="{{ id }}" name="{{ full_name }}" />
+{%- endblock search_widget %}
+
+{% block tel_widget -%}
+    <twig:Input type="tel" value="{{ value }}" disabled="{{ disabled }}" invalid="{{ not valid }}" id="{{ id }}" name="{{ full_name }}" />
+{%- endblock tel_widget %}
+
+{% block url_widget -%}
+    <twig:Input type="url" value="{{ value }}" disabled="{{ disabled }}" invalid="{{ not valid }}" id="{{ id }}" name="{{ full_name }}" />
+{%- endblock url_widget %}
+
+{% block number_widget -%}
+    <twig:Input type="number" value="{{ value }}" disabled="{{ disabled }}" invalid="{{ not valid }}" id="{{ id }}" name="{{ full_name }}" />
+{%- endblock number_widget %}
+
+{% block integer_widget -%}
+    <twig:Input type="number" value="{{ value }}" disabled="{{ disabled }}" invalid="{{ not valid }}" id="{{ id }}" name="{{ full_name }}" />
+{%- endblock integer_widget %}
+
+{% block range_widget -%}
+    <twig:Range
+        id="{{ id }}"
+        value="{{ value }}"
+        min="{{ attr.min|default('') }}"
+        max="{{ attr.max|default('') }}"
+        step="{{ attr.step|default('') }}"
+        disabled="{{ disabled }}"
+        name="{{ full_name }}"
+    />
+{%- endblock range_widget %}
+
+{% block checkbox_widget -%}
+    <twig:Checkbox
+        checked="{{ checked }}"
+        disabled="{{ disabled }}"
+        id="{{ id }}"
+        name="{{ full_name }}"
+        label="{{ label is not same as(false) ? label : '' }}"
+    />
+{%- endblock checkbox_widget %}
+
+{% block radio_widget -%}
+    <twig:Radio
+        checked="{{ checked }}"
+        disabled="{{ disabled }}"
+        id="{{ id }}"
+        name="{{ full_name }}"
+        value="{{ value }}"
+        label="{{ label is not same as(false) ? label : '' }}"
+    />
+{%- endblock radio_widget %}
+
+{% block choice_widget_collapsed -%}
+    <div data-ui-part="select-control">
+        <select
+            data-ui-role="select"
+            name="{{ full_name }}"
+            id="{{ id }}"
+            {% if disabled %}disabled="disabled" data-ui-state="disabled"{% elseif not valid %}data-ui-state="invalid" aria-invalid="true"{% endif %}
+            {% if required %}required="required"{% endif %}
+            {% if multiple %}multiple="multiple"{% endif %}
+        >
+            {%- if placeholder is not none -%}
+                <option value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ placeholder != '' ? placeholder : 'Choose…' }}</option>
+            {%- endif -%}
+            {%- if preferred_choices|length > 0 -%}
+                {% set options = preferred_choices %}
+                {{- block('choice_widget_options') -}}
+                {%- if choices|length > 0 and separator is not none -%}
+                    <option disabled="disabled">{{ separator }}</option>
+                {%- endif -%}
+            {%- endif -%}
+            {%- set options = choices -%}
+            {{- block('choice_widget_options') -}}
+        </select>
+        <span data-ui-part="select-chevron" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8l4 4 4-4"/></svg></span>
+    </div>
+{%- endblock choice_widget_collapsed %}
+
+{% block choice_widget_expanded -%}
+    {%- if multiple -%}
+        <div data-ui-role="checkbox-list">
+            {{- block('choice_widget') -}}
+        </div>
+    {%- else -%}
+        <twig:RadioGroup id="{{ id }}" name="{{ full_name }}">
+            {{- block('choice_widget') -}}
+        </twig:RadioGroup>
+    {%- endif -%}
+{%- endblock choice_widget_expanded %}
+
+{% block choice_widget -%}
+    {%- if expanded -%}
+        {{- block('choice_widget_expanded') -}}
+    {%- else -%}
+        {{- block('choice_widget_collapsed') -}}
+    {%- endif -%}
+{%- endblock choice_widget %}
+
+{% block choice_widget_options -%}
+    {%- for choice in options -%}
+        {%- if choice is iterable -%}
+            <optgroup label="{{ choice.label }}">
+                {%- set options = choice.choices -%}
+                {{- block('choice_widget_options') -}}
+            </optgroup>
+        {%- else -%}
+            <option value="{{ choice.value }}"{% if choice is selectedchoice(value) %} selected="selected"{% endif %}>{{ choice.label }}</option>
+        {%- endif -%}
+    {%- endfor -%}
+{%- endblock choice_widget_options %}
+
+{% block file_widget -%}
+    {%- set form_ui = form.vars.symfinity_form_ui|default({}) -%}
+    {%- set upload = form_ui.upload|default({}) -%}
+    <div
+        {% if upload.enabled|default(false) %}
+            data-controller="{{ upload.controller|default('form-ui--upload') }}"
+            data-upload-status="{{ upload.status|default('idle') }}"
+            data-upload-progress="{{ upload.progress|default(0) }}"
+        {% endif %}
+    >
+        <twig:FileUpload
+            id="{{ id }}"
+            name="{{ full_name }}"
+            disabled="{{ disabled }}"
+            invalid="{{ not valid }}"
+            required="{{ required }}"
+            accept="{{ upload.accept|default(attr.accept|default('')) }}"
+            multiple="{{ multiple|default(false) }}"
+        />
+    </div>
+{%- endblock file_widget %}
+
+{% block date_widget -%}
+    {%- if symfinity_form_ui_live_date_available -%}
+        <twig:DatePickerLive id="{{ id }}" name="{{ full_name }}" value="{{ value }}" disabled="{{ disabled }}" />
+    {%- else -%}
+        <twig:Input type="date" value="{{ value }}" disabled="{{ disabled }}" invalid="{{ not valid }}" id="{{ id }}" name="{{ full_name }}" />
+    {%- endif -%}
+{%- endblock date_widget %}
+
+{% block time_widget -%}
+    <twig:Input type="time" value="{{ value }}" disabled="{{ disabled }}" invalid="{{ not valid }}" id="{{ id }}" name="{{ full_name }}" />
+{%- endblock time_widget %}
+
+{% block datetime_widget -%}
+    <twig:Input type="datetime-local" value="{{ value }}" disabled="{{ disabled }}" invalid="{{ not valid }}" id="{{ id }}" name="{{ full_name }}" />
+{%- endblock datetime_widget %}
+
+{% block birthday_widget -%}
+    <twig:Input type="date" value="{{ value }}" disabled="{{ disabled }}" invalid="{{ not valid }}" id="{{ id }}" name="{{ full_name }}" />
+{%- endblock birthday_widget %}
+
+{% block button_widget -%}
+    {%- set form_ui = form.vars.symfinity_form_ui|default({}) -%}
+    {%- set button_meta = form_ui.button_metadata|default({}) -%}
+    <twig:Button
+        type="{{ type|default('button') }}"
+        disabled="{{ disabled }}"
+        variant="{{ button_meta.intent|default('primary') }}"
+        as="button"
+        name="{{ full_name }}"
+        id="{{ id }}"
+    >{{ label is not same as(false) ? label : name|humanize }}</twig:Button>
+{%- endblock button_widget %}
+
+{% block submit_widget -%}
+    {%- set form_ui = form.vars.symfinity_form_ui|default({}) -%}
+    {%- set button_meta = form_ui.button_metadata|default({}) -%}
+    <twig:Button
+        type="submit"
+        disabled="{{ disabled }}"
+        variant="{{ button_meta.intent|default('primary') }}"
+        as="button"
+        name="{{ full_name }}"
+        id="{{ id }}"
+    >{{ label is not same as(false) ? label : name|humanize }}</twig:Button>
+{%- endblock submit_widget %}
+
+{% block widget_attributes -%}
+    id="{{ id }}" name="{{ full_name }}"{% if disabled %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% for attrname, attrvalue in attr %}{% if attrname not in ['placeholder', 'min', 'max', 'step', 'accept'] %} {{ attrname }}="{{ attrvalue }}"{% endif %}{% endfor %}
+{%- endblock widget_attributes %}

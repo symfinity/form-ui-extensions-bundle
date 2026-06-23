@@ -1,0 +1,6 @@
+symfinity_form_ui:
+    theme:
+        enabled: false
+        wrapper: field
+        live_date: false
+        live_tags: false

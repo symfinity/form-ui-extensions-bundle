@@ -1,31 +1,47 @@
 ## symfinity/form-ui-extensions-bundle
 
-Theme-agnostic Symfony Form extensions for:
+Symfony Form extensions for `symfinity_form_ui.*` FormView vars (R1+R2) and an optional **ux-blocks form theme bridge** (**113**).
 
-- button metadata options (`ui_button_metadata`)
-- novalidate strategy (`ui_novalidate_strategy`)
-- optional uppercase normalization (`ui_uppercase_normalization`)
+### Capabilities
 
-Contracts: [contracts/](contracts/) · [quickstart](quickstart.md)
+| Layer | Role |
+|-------|------|
+| PHP extensions | Button metadata, novalidate, uppercase, wizard, collection, upload, error summary, field groups |
+| Form theme (`theme.enabled`) | Maps Symfony Form blocks → ux-blocks components |
 
-### Minimal usage
+Contracts: [contracts/](contracts/) · bridge: [_org symfony-form-theme-bridge](../../../../specs/symfinity/symfinity/_org/contracts/form-ui-extensions/symfony-form-theme-bridge.md) · [quickstart](quickstart.md)
 
-- Register bundle and ensure Form component is enabled.
-- Read resolved vars from `FormView` namespace `symfinity_form_ui`.
-- Keep rendering decisions in Twig/frontend runtime; this bundle does not render HTML.
+### Bridge install (113)
 
-### Primal lab reference (WoWi)
+```bash
+composer require symfinity/form-ui-extensions-bundle symfinity/ux-blocks-form
+```
 
-Source: [`var/primal/td-cc-wowi`](../../../../var/primal/td-cc-wowi) (reference only).
+```yaml
+# config/packages/symfinity_form_ui.yaml
+symfinity_form_ui:
+    theme:
+        enabled: true
+```
 
-| WoWi pattern | Notes |
-|--------------|-------|
-| `FormErrorSerializer` → `{ global, fields }` JSON for AJAX POST | Pair with Stimulus/`ux-runtime` — expose field-level errors via FormView vars + host controller |
-| Newsletter subscribe/unsubscribe AJAX forms | Same validation JSON contract; rendering stays in host Twig |
+Flex recipe `0.1` copies config with `theme.enabled: true`. Theme registration is automatic via bundle prepend — no manual `framework.form.themes` entry required.
 
-### FormView vars
+### FormView vars (theme-agnostic)
 
-- `symfinity_form_ui.button_metadata`
-- `symfinity_form_ui.novalidate`
-- `symfinity_form_ui.novalidate_strategy`
-- `symfinity_form_ui.uppercase`
+Read resolved vars from `FormView` namespace `symfinity_form_ui` — see [form-view-vars-surface](contracts/form-view-vars-surface.md).
+
+### Dogfood
+
+```bash
+make dogfood-new SLUG=form-ui-extensions-lab VERSION='7.4.*'
+make dogfood-serve SLUG=form-ui-extensions-lab
+```
+
+Route: `/form-ui-extensions`
+
+### Tests
+
+```bash
+cd src/symfinity
+./bin/php vendor/bin/phpunit packages/form-ui-extensions-bundle/tests/
+```

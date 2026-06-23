@@ -24,6 +24,7 @@ use Symfinity\FormUiExtensionsBundle\Form\Resolver\ErrorSummaryBuilder;
 use Symfinity\FormUiExtensionsBundle\Form\Resolver\FormUiStateMerger;
 use Symfinity\FormUiExtensionsBundle\Form\Resolver\WizardStateResolver;
 use Symfinity\FormUiExtensionsBundle\Form\Transformer\UppercaseTransformer;
+use Symfinity\FormUiExtensionsBundle\Twig\FormThemeTwigExtension;
 use Symfinity\FormUiExtensionsBundle\Validator\Constraints\DateRangeValidValidator;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
@@ -59,4 +60,12 @@ return static function (ContainerConfigurator $container): void {
     $services->set(FieldGroupTypeExtension::class)->tag('form.type_extension');
 
     $services->set(DateRangeValidValidator::class)->tag('validator.constraint_validator');
+
+    $services->set(FormThemeTwigExtension::class)
+        ->args([
+            '$wrapper' => '%symfinity_form_ui.theme.wrapper%',
+            '$liveDate' => '%symfinity_form_ui.theme.live_date%',
+            '$liveTags' => '%symfinity_form_ui.theme.live_tags%',
+        ])
+        ->tag('twig.extension');
 };
