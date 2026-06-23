@@ -1,20 +1,13 @@
 <div align="center">
 
-# Form Ui Extensions Bundle
+# Form UI Extensions Bundle
 
-### Theme-agnostic Symfony Form UI extensions for metadata, novalidate strategy, and optional uppercase normalization
+### Theme-agnostic Symfony Form UI extensions for metadata and novalidate strategy
 
 [![PHP Version](https://img.shields.io/badge/PHP-8.2+-777BB4?style=flat&logo=php&logoColor=white)](composer.json)
 [![Symfony](https://img.shields.io/badge/Symfony-6.4+-343434?style=flat&logo=symfony&logoColor=white)](composer.json)
-
 <br/>
-[![PHPUnit](https://github.com/symfinity/symfinity/actions/workflows/phpunit.yml/badge.svg)](https://github.com/symfinity/symfinity/actions/workflows/phpunit.yml)
-[![Coverage](https://github.com/symfinity/symfinity/actions/workflows/coverage.yml/badge.svg)](https://github.com/symfinity/symfinity/actions/workflows/coverage.yml)
-[![PHPStan](https://github.com/symfinity/symfinity/actions/workflows/phpstan.yml/badge.svg)](https://github.com/symfinity/symfinity/actions/workflows/phpstan.yml)
-<br/>
-[![Psalm](https://github.com/symfinity/symfinity/actions/workflows/psalm.yml/badge.svg)](https://github.com/symfinity/symfinity/actions/workflows/psalm.yml)
-[![Infection](https://github.com/symfinity/symfinity/actions/workflows/infection.yml/badge.svg)](https://github.com/symfinity/symfinity/actions/workflows/infection.yml)
-[![Code Style](https://img.shields.io/badge/code%20style-CS%20Fixer-5c4dbc?style=flat)](https://github.com/symfinity/symfinity/actions/workflows/php-cs-fixer.yml)
+[![CI](https://github.com/symfinity/form-ui-extensions-bundle/actions/workflows/ci.yml/badge.svg)](https://github.com/symfinity/form-ui-extensions-bundle/actions/workflows/ci.yml)
 <br/>
 [![Release](https://img.shields.io/packagist/v/symfinity/form-ui-extensions-bundle.svg?style=flat&logo=packagist&logoColor=white)](https://packagist.org/packages/symfinity/form-ui-extensions-bundle)
 [![Downloads](https://img.shields.io/packagist/dt/symfinity/form-ui-extensions-bundle.svg?style=flat&logo=packagist&logoColor=white)](https://packagist.org/packages/symfinity/form-ui-extensions-bundle)
@@ -22,35 +15,56 @@
 
 </div>
 
----
+> [!NOTE]
+> **Read-only mirror.**
+> See [CONTRIBUTING.md](CONTRIBUTING.md) for how to propose changes.
 
-## Documentation
+## Features
 
-| Topic | Page |
-|-------|------|
-| Readme | [docs/README.md](docs/README.md) |
-| Configuration | [docs/configuration.md](docs/configuration.md) |
-| Index | [docs/index.md](docs/index.md) |
-| Installation | [docs/installation.md](docs/installation.md) |
-| Quickstart | [docs/quickstart.md](docs/quickstart.md) |
-| Reference | [docs/reference.md](docs/reference.md) |
-| Troubleshooting | [docs/troubleshooting.md](docs/troubleshooting.md) |
-| Upgrade | [docs/upgrade.md](docs/upgrade.md) |
-| Usage | [docs/usage.md](docs/usage.md) |
-| Verification | [docs/verification.md](docs/verification.md) |
-| Contracts/Button Metadata Options | [docs/contracts/button-metadata-options.md](docs/contracts/button-metadata-options.md) |
-| Contracts/Core Domain | [docs/contracts/core-domain.md](docs/contracts/core-domain.md) |
-| Contracts/Form View Vars Surface | [docs/contracts/form-view-vars-surface.md](docs/contracts/form-view-vars-surface.md) |
-| Contracts/Novalidate Strategy | [docs/contracts/novalidate-strategy.md](docs/contracts/novalidate-strategy.md) |
-| Contracts/Uppercase Normalization | [docs/contracts/uppercase-normalization.md](docs/contracts/uppercase-normalization.md) |
+- **FormView vars** — button metadata, novalidate strategy, uppercase normalization
+- **Theme-agnostic** — works with any Symfony form theme
+- **Optional ux-blocks bridge** — pair with `symfinity/ux-blocks-form` for widgets
+- **Flex recipe** — bundle registration on install
 
-## Requirements
+## Prerequisites
 
-- PHP 8.2+
-- Symfony 6.4+ (Flex recipe when available)
+Add the [symfinity/recipes](https://github.com/symfinity/recipes) Flex endpoint to your project's `composer.json` (see [recipes README](https://github.com/symfinity/recipes/blob/main/README.md)) — recipes are not in Symfony's official recipe repository yet.
 
-## Install
+## Installation
 
 ```bash
 composer require symfinity/form-ui-extensions-bundle
 ```
+
+See [Installation](docs/installation.md).
+
+## Quick Start
+
+```bash
+composer require symfinity/form-ui-extensions-bundle
+```
+
+See [Quick start](docs/quickstart.md) for the full walkthrough.
+
+## Documentation
+
+- **[Quick start](docs/quickstart.md)** — minimal setup path
+- **[Installation](docs/installation.md)** — Flex, dependencies, verify
+- **[Configuration](docs/configuration.md)** — bundle and app options
+- **[Usage](docs/usage.md)** — day-to-day patterns
+- **[Upgrade](docs/upgrade.md)** — version migrations
+
+## Requirements
+
+- PHP 8.2 or higher
+- Symfony 6.4, 7.x, or 8.x
+
+## Support
+
+- [GitHub Issues](https://github.com/symfinity/form-ui-extensions-bundle/issues)
+- [Security](.github/SECURITY.md)
+- [Contributing](CONTRIBUTING.md)
+
+## License
+
+[MIT](LICENSE)
