@@ -24,9 +24,19 @@ None — first tagged release.
 
 Not applicable for greenfield installs.
 
-## Unreleased development
+## 0.1.1
 
-Changes on `main` after `v0.1.0` appear under `[Unreleased]` in [CHANGELOG.md](../CHANGELOG.md) until the next tag.
+Patch release after [v0.1.0](https://github.com/symfinity/form-ui-extensions-bundle/releases/tag/v0.1.0).
+
+```bash
+composer update symfinity/form-ui-extensions-bundle
+```
+
+After upgrade:
+
+1. Clear Symfony cache — Twig form theme paths are registered via bundle prepend.
+2. Checkbox fields use horizontal field orientation in the default theme; adjust custom form theme overrides if you relied on the previous vertical shell.
+3. No FormView var names or `symfinity_form_ui` configuration keys changed.
 
 ## See also
 

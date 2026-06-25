@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2026-06-25
+
+### Changed
+
+- **Twig wiring** — `@SymfinityFormUi` template namespace registered via DI `prepend` whenever Twig is installed; UX Blocks form theme remains optional behind `symfinity_form_ui.theme.enabled`
+- **Bundle bootstrap** — removed `TwigConfigurator::path()` registration from `FormUiExtensionsBundle` (prepend-only wiring for Symfony 7.4+)
+- **Form theme** — `checkbox_row` field shell uses `data-ui-orientation="horizontal"` for label/control layout
+- **Handbook** — `docs/verification.md` expanded with bridge smoke checks
+
+### Notes
+
+- No FormView var names or configuration keys changed — patch release after v0.1.0 tag
+- Clear Symfony cache after upgrade if Twig form themes were cached in dev
+
 ## [0.1.0] - 2026-06-25
 
 ### Added
