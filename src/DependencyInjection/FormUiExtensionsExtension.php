@@ -32,20 +32,26 @@ final class FormUiExtensionsExtension extends Extension implements PrependExtens
 
     public function prepend(ContainerBuilder $container): void
     {
-        $configs = $container->getExtensionConfig($this->getAlias());
-        $config = $this->processConfiguration(new Configuration(), $configs);
-
-        if (!$config['theme']['enabled']) {
+        if (!$container->hasExtension('twig')) {
             return;
         }
 
-        if ($container->hasExtension('twig')) {
-            $container->prependExtensionConfig('twig', [
-                'form_themes' => [
-                    '@SymfinityFormUi/form/theme.html.twig',
-                ],
-            ]);
+        $twigConfig = [
+            'paths' => [
+                \dirname(__DIR__, 2).'/templates' => 'SymfinityFormUi',
+            ],
+        ];
+
+        $configs = $container->getExtensionConfig($this->getAlias());
+        $config = $this->processConfiguration(new Configuration(), $configs);
+
+        if ($config['theme']['enabled']) {
+            $twigConfig['form_themes'] = [
+                '@SymfinityFormUi/form/theme.html.twig',
+            ];
         }
+
+        $container->prependExtensionConfig('twig', $twigConfig);
     }
 
     public function getAlias(): string

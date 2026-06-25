@@ -77,7 +77,7 @@
 {%- endblock form_row %}
 
 {% block checkbox_row -%}
-    <div data-ui-orientation="vertical" data-ui-role="field" {% if not valid %}data-ui-state="invalid"{% endif %}>
+    <div data-ui-orientation="horizontal" data-ui-role="field" {% if not valid %}data-ui-state="invalid"{% endif %}>
         {{- form_widget(form, {label: false, help: false, errors: []}) -}}
         {%- if label is not same as(false) -%}
             <label for="{{ id }}">{{ label }}</label>
@@ -86,7 +86,7 @@
 {%- endblock checkbox_row %}
 
 {% block radio_row -%}
-    <div data-ui-orientation="vertical" data-ui-role="field" {% if not valid %}data-ui-state="invalid"{% endif %}>
+    <div data-ui-orientation="horizontal" data-ui-role="field" {% if not valid %}data-ui-state="invalid"{% endif %}>
         {{- form_widget(form, {label: false, help: false, errors: []}) -}}
         {%- if label is not same as(false) -%}
             <label for="{{ id }}">{{ label }}</label>
