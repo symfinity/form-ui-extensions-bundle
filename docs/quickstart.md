@@ -1,18 +1,14 @@
 # Quickstart: symfinity/form-ui-extensions-bundle
 
-## Install (FormView vars only)
-
-```bash
-composer require symfinity/form-ui-extensions-bundle
-```
-
-Requires `symfony/form` in the host application.
-
-## Bridge install (113 — ux-blocks rendering)
+## Bridge install (recommended)
 
 ```bash
 composer require symfinity/form-ui-extensions-bundle symfinity/ux-blocks-form
 ```
+
+Add the [symfinity/recipes](https://github.com/symfinity/recipes) Flex endpoint to your project if you have not already.
+
+The recipe registers the bundle and copies `config/packages/symfinity_form_ui.yaml` with the theme bridge enabled. To adjust defaults:
 
 ```yaml
 # config/packages/symfinity_form_ui.yaml
@@ -20,7 +16,7 @@ symfinity_form_ui:
     theme:
         enabled: true
         wrapper: field   # or floating-field
-        live_date: false # set true when symfinity/ux-blocks-live is installed
+        live_date: false # true when symfinity/ux-blocks-live is installed
         live_tags: false
 ```
 
@@ -31,6 +27,8 @@ When `theme.enabled` is true, the bundle prepends `@SymfinityFormUi/form/theme.h
 ```php
 use Symfinity\FormUiExtensionsBundle\Contract\FormUiOptionKeys;
 use Symfinity\FormUiExtensionsBundle\Form\Option\NovalidateStrategyResolver;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 $builder->add('save', SubmitType::class, [
     FormUiOptionKeys::BUTTON_METADATA => [
@@ -53,20 +51,17 @@ $builder = $formFactory->createBuilder(FormType::class, null, [
 {{ form_end(form) }}
 ```
 
-R2 options (wizard, collection, field groups, …) use existing `FormUiOptionKeys` — the theme reads the resulting `symfinity_form_ui.*` vars.
+Wizard, collection, field groups, and other R2 options use `FormUiOptionKeys` — the theme reads the resulting `symfinity_form_ui.*` vars. See [usage.md](usage.md) and [contracts/form-view-vars-catalog.md](contracts/form-view-vars-catalog.md).
 
-## Dogfood
-
-```bash
-make dogfood-new SLUG=form-ui-extensions-lab VERSION='7.4.*'
-make dogfood-serve SLUG=form-ui-extensions-lab
-```
-
-Browse `/form-ui-extensions`.
-
-## Tests
+## Verify
 
 ```bash
-cd src/symfinity
-./bin/php vendor/bin/phpunit packages/form-ui-extensions-bundle/tests/
+php bin/console debug:config symfinity_form_ui
+composer test
 ```
+
+## Support
+
+- [CHANGELOG](../CHANGELOG.md)
+- [CONTRIBUTING](../CONTRIBUTING.md)
+- [GitHub Issues](https://github.com/symfinity/form-ui-extensions-bundle/issues)

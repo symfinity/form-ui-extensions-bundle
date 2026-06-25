@@ -5,7 +5,7 @@
 ### Theme-agnostic Symfony Form UI extensions for metadata and novalidate strategy
 
 [![PHP Version](https://img.shields.io/badge/PHP-8.2+-777BB4?style=flat&logo=php&logoColor=white)](composer.json)
-[![Symfony](https://img.shields.io/badge/Symfony-6.4+-343434?style=flat&logo=symfony&logoColor=white)](composer.json)
+[![Symfony](https://img.shields.io/badge/Symfony-7.4+-343434?style=flat&logo=symfony&logoColor=white)](composer.json)
 <br/>
 [![CI](https://github.com/symfinity/form-ui-extensions-bundle/actions/workflows/ci.yml/badge.svg)](https://github.com/symfinity/form-ui-extensions-bundle/actions/workflows/ci.yml)
 <br/>
@@ -57,7 +57,7 @@ See [Quick start](docs/quickstart.md) for the full walkthrough.
 ## Requirements
 
 - PHP 8.2 or higher
-- Symfony 6.4, 7.x, or 8.x
+- Symfony **7.4** or **8.x**
 
 ## Support
 
