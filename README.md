@@ -20,7 +20,6 @@
 > See [CONTRIBUTING.md](CONTRIBUTING.md) for how to propose changes.
 
 ## Features
-
 - **FormView vars** — button metadata, novalidate strategy, uppercase normalization
 - **Theme-agnostic** — works with any Symfony form theme
 - **Optional ux-blocks bridge** — pair with `symfinity/ux-blocks-form` for widgets
@@ -31,23 +30,11 @@
 Add the [symfinity/recipes](https://github.com/symfinity/recipes) Flex endpoint to your project's `composer.json` (see [recipes README](https://github.com/symfinity/recipes/blob/main/README.md)) — recipes are not in Symfony's official recipe repository yet.
 
 ## Installation
-
 ```bash
 composer require symfinity/form-ui-extensions-bundle
 ```
-
-See [Installation](docs/installation.md).
-
-## Quick Start
-
-```bash
-composer require symfinity/form-ui-extensions-bundle
-```
-
-See [Quick start](docs/quickstart.md) for the full walkthrough.
 
 ## Documentation
-
 - **[Quick start](docs/quickstart.md)** — minimal setup path
 - **[Installation](docs/installation.md)** — Flex, dependencies, verify
 - **[Configuration](docs/configuration.md)** — bundle and app options
@@ -55,12 +42,10 @@ See [Quick start](docs/quickstart.md) for the full walkthrough.
 - **[Upgrade](docs/upgrade.md)** — version migrations
 
 ## Requirements
-
 - PHP 8.2 or higher
 - Symfony **7.4** or **8.x**
 
 ## Support
-
 - [GitHub Issues](https://github.com/symfinity/form-ui-extensions-bundle/issues)
 - [Security](.github/SECURITY.md)
 - [Contributing](CONTRIBUTING.md)
