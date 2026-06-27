@@ -16,7 +16,7 @@ symfinity_form_ui:
     theme:
         enabled: true
         wrapper: field   # or floating-field
-        live_date: false # true when symfinity/ux-blocks-live is installed
+        live_date: false # true only when live-tier UX Blocks widgets are available
         live_tags: false
 ```
 

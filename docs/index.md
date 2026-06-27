@@ -11,7 +11,6 @@ Package handbook for this library.
 - [Upgrade](upgrade.md)
 - [Troubleshooting](troubleshooting.md)
 - [Reference](reference.md)
-- [Readme](README.md)
 - [Contracts — Button Metadata Options](contracts/button-metadata-options.md)
 - [Contracts — Core Domain](contracts/core-domain.md)
 - [Contracts — Form View Vars Surface](contracts/form-view-vars-surface.md)

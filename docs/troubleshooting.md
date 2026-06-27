@@ -28,9 +28,9 @@ Run `php bin/console debug:config symfinity_form_ui` to confirm. Re-apply the Fl
 
 ## live_date or live_tags has no effect
 
-**Cause:** Those flags require `symfinity/ux-blocks-live`.
+**Cause:** Those flags require optional live-tier UX Blocks widgets (not published on Packagist yet).
 
-**Fix:** Install the live tier package or set both flags to `false`.
+**Fix:** Install live-tier widgets when available, or set both flags to `false`.
 
 ## PHPStan or PHPUnit fails after upgrading Symfony
 

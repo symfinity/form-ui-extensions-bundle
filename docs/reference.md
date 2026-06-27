@@ -19,7 +19,7 @@ See [Configuration](configuration.md) for the full `symfinity_form_ui.theme.*` o
 
 Normative detail for FormView vars, novalidate, wizard, collection, upload, and theme behaviour:
 
-- [docs/contracts/](contracts/) — including [form-view-vars-catalog](contracts/form-view-vars-catalog.md) and [form-view-vars-surface](contracts/form-view-vars-surface.md)
+- [FormView var catalog](contracts/form-view-vars-catalog.md) — including [form-view-vars-surface](contracts/form-view-vars-surface.md) and other contract pages under `docs/contracts/`
 
 ## Glossary
 

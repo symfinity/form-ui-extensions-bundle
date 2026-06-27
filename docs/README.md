@@ -9,7 +9,7 @@ Symfony Form extensions for `symfinity_form_ui.*` FormView vars and an optional 
 | PHP extensions | Button metadata, novalidate, uppercase, wizard, collection, upload, error summary, field groups |
 | Form theme (`theme.enabled`) | Maps Symfony Form blocks to ux-blocks components |
 
-See [contracts/](contracts/) for the FormView var catalog and option semantics.
+See [FormView var catalog](contracts/form-view-vars-catalog.md) and sibling pages under `docs/contracts/` for option semantics.
 
 ## Bridge install
 

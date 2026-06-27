@@ -59,13 +59,14 @@ Field-level uppercase transformer via `FormUiOptionKeys::UPPERCASE`.
 
 | Package | Enables |
 |---------|---------|
-| `symfinity/ux-blocks-live` | `theme.live_date` / `theme.live_tags` |
-| `symfinity/ui-kernel` | Full design-token CSS (Chameleon look) |
+| [symfinity/ui-kernel](https://packagist.org/packages/symfinity/ui-kernel) | Full design-token CSS (Chameleon look) |
+
+`theme.live_date` and `theme.live_tags` require optional live-tier UX Blocks widgets (not published on Packagist yet).
 
 ## Pitfalls
 
 - Installing without `symfinity/ux-blocks-form` fails at Composer resolve time (hard require).
-- Live theme flags without `ux-blocks-live` installed may render incorrectly — keep flags `false` unless the package is present.
+- Live theme flags without live-tier widgets installed may render incorrectly — keep flags `false` unless those widgets are present.
 - See [Troubleshooting](troubleshooting.md) for Flex recipe and theme issues.
 
 ## See also

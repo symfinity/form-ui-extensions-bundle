@@ -16,8 +16,8 @@ The short alias `symfinity_form_ui` is intentional — not derived from the Comp
 |--------|------|---------|-------------|
 | `symfinity_form_ui.theme.enabled` | bool | `false` (no YAML) / `true` (Flex recipe copy) | When true, prepends `@SymfinityFormUi/form/theme.html.twig` to Twig form themes |
 | `symfinity_form_ui.theme.wrapper` | `field` \| `floating-field` | `field` | Default field wrapper role for mapped types |
-| `symfinity_form_ui.theme.live_date` | bool | `false` | Use ux-blocks live date widget (requires `symfinity/ux-blocks-live`) |
-| `symfinity_form_ui.theme.live_tags` | bool | `false` | Use ux-blocks live tags widget (requires `symfinity/ux-blocks-live`) |
+| `symfinity_form_ui.theme.live_date` | bool | `false` | Use live-tier date widget (requires optional live widgets — not published separately yet) |
+| `symfinity_form_ui.theme.live_tags` | bool | `false` | Use live-tier tags widget (requires optional live widgets — not published separately yet) |
 
 Programmatic defaults match `Configuration.php` when no YAML is present. The Flex recipe copies package config with `theme.enabled: true`.
 
