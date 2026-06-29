@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.2] - 2026-06-29
+
+### Removed
+
+- **`config/reference.php`** — auto-generated Symfony application config shapes do not belong in a bundle package
+
+### Changed
+
+- **Handbook** — `theme.live_date` and `theme.live_tags` documented as requiring optional live-tier widgets not yet on Packagist; removed premature `symfinity/ux-blocks-live` install paths from configuration, quickstart, usage, and troubleshooting pages
+- **Split mirror CI** — Composer package cache and `GITHUB_TOKEN` authentication so GitHub Actions reliably resolves `symfinity/*` dependencies across the PHP × Symfony matrix
+
+### Added
+
+- Composer **`funding`** metadata for [GitHub Sponsors](https://github.com/sponsors/serotoninja)
+
+### Notes
+
+- No FormView var names or `symfinity_form_ui` configuration keys changed — documentation and split-mirror hygiene patch after v0.1.1
+- Upgrading from **0.1.1** needs no template or config edits beyond clearing Symfony cache if Twig form themes were cached in dev
+
 ## [0.1.1] - 2026-06-25
 
 ### Changed

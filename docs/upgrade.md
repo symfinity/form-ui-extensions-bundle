@@ -38,6 +38,20 @@ After upgrade:
 2. Checkbox fields use horizontal field orientation in the default theme; adjust custom form theme overrides if you relied on the previous vertical shell.
 3. No FormView var names or `symfinity_form_ui` configuration keys changed.
 
+## 0.1.2
+
+Patch release after [v0.1.1](https://github.com/symfinity/form-ui-extensions-bundle/releases/tag/v0.1.1).
+
+```bash
+composer update symfinity/form-ui-extensions-bundle
+```
+
+After upgrade:
+
+1. No FormView var names or `symfinity_form_ui` configuration keys changed.
+2. Handbook pages no longer reference `symfinity/ux-blocks-live` as a published package — keep `theme.live_date` and `theme.live_tags` at `false` until live-tier widgets are available on Packagist.
+3. Bundle no longer ships `config/reference.php` (Symfony app-only artifact); use `php bin/console debug:config symfinity_form_ui` in your application instead.
+
 ## See also
 
 [Configuration](configuration.md) · [Installation](installation.md)
