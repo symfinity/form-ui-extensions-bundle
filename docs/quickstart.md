@@ -20,7 +20,7 @@ symfinity_form_ui:
         live_tags: false
 ```
 
-When `theme.enabled` is true, the bundle prepends `@SymfinityFormUi/form/theme.html.twig` — no extra `framework.form.themes` entry is required.
+When `theme.enabled` is true, the bundle prepends `@SymfinityFormUi/form/theme.html.twig` — no extra `framework.form.themes` entry is required. Root forms auto-inject ux-blocks core + form inline CSS (see [Usage](usage.md)).
 
 ## Form options
 

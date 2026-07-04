@@ -42,6 +42,8 @@ final class FormThemeBridgeIntegrationTest extends KernelTestCase
 
         self::assertStringContainsString('data-ui-role="field"', $html);
         self::assertStringContainsString('data-ui-role="input"', $html);
+        self::assertStringContainsString('id="ux-blocks-core-css"', $html);
+        self::assertStringContainsString('id="ux-blocks-form-css"', $html);
         self::assertStringContainsString('>Email<', $html);
         self::assertDoesNotMatchRegularExpression('/id="[^"]+"[^>]+id="/', $html);
     }
@@ -155,7 +157,7 @@ final class FormThemeBridgeIntegrationTest extends KernelTestCase
         });
 
         self::assertStringContainsString('name="form[custom]"', $html);
-        self::assertStringNotContainsString('data-ui-role="input"', $html);
+        self::assertDoesNotMatchRegularExpression('/name="form\[custom\]"[^>]*data-ui-role="input"/', $html);
     }
 
     #[Test]

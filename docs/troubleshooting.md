@@ -26,6 +26,12 @@ symfinity_form_ui:
 
 Run `php bin/console debug:config symfinity_form_ui` to confirm. Re-apply the Flex recipe or copy the default YAML from the package if needed.
 
+## Form fields look unstyled (no data-ui-role styling)
+
+**Cause:** Theme disabled, or inline CSS markers missing from HTML.
+
+**Fix:** Enable the theme (above). After submit/render, confirm `id="ux-blocks-core-css"` and `id="ux-blocks-form-css"` in the response. Optional `symfinity/ui-kernel` improves themed spacing and colours beyond inline tier CSS.
+
 ## live_date or live_tags has no effect
 
 **Cause:** Those flags require optional live-tier UX Blocks widgets (not published on Packagist yet).

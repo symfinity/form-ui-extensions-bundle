@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.3] - 2026-07-05
+
+### Added
+
+- **Theme bridge inline CSS** — root `form_start` auto-injects ux-blocks core and form tier CSS once per request via `form_ui_extensions_ui_assets()`; response HTML includes `<style id="ux-blocks-core-css">` and `<style id="ux-blocks-form-css">` — no importmap entry or layout paste required for baseline field styling
+
+### Changed
+
+- **Handbook** — quickstart, usage, troubleshooting, and verification document inline CSS auto-injection and unstyled-field diagnosis
+- **README** — installation lists `symfinity/ux-blocks-form` alongside the bundle; notes theme bridge CSS on `form_start`
+
+### Notes
+
+- No FormView var names or `symfinity_form_ui` configuration keys changed — styling patch after v0.1.2
+- Optional `symfinity/ui-kernel` still improves full design-token theming beyond inline tier CSS
+- Upgrading from **0.1.2** needs no config edits; clear Symfony cache if Twig form themes were cached in dev
+
 ## [0.1.2] - 2026-06-29
 
 ### Removed

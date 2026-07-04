@@ -25,8 +25,12 @@ use Symfinity\FormUiExtensionsBundle\Form\Resolver\FormUiStateMerger;
 use Symfinity\FormUiExtensionsBundle\Form\Resolver\WizardStateResolver;
 use Symfinity\FormUiExtensionsBundle\Form\Transformer\UppercaseTransformer;
 use Symfinity\FormUiExtensionsBundle\Twig\FormThemeTwigExtension;
+use Symfinity\FormUiExtensionsBundle\Twig\FormUiThemeUiAssetsExtension;
+use Symfinity\FormUiExtensionsBundle\Twig\FormUiThemeUiAssetsRenderer;
 use Symfinity\FormUiExtensionsBundle\Validator\Constraints\DateRangeValidValidator;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
 
 return static function (ContainerConfigurator $container): void {
     $services = $container->services()
@@ -67,5 +71,12 @@ return static function (ContainerConfigurator $container): void {
             '$liveDate' => '%symfinity_form_ui.theme.live_date%',
             '$liveTags' => '%symfinity_form_ui.theme.live_tags%',
         ])
+        ->tag('twig.extension');
+
+    $services->set(FormUiThemeUiAssetsRenderer::class)
+        ->arg('$coreCssProvider', service('Symfinity\\UxBlocksCore\\Css\\BlocksCoreCssProvider')->nullOnInvalid())
+        ->arg('$formCssProvider', service('Symfinity\\UxBlocksForm\\Css\\BlocksFormCssProvider')->nullOnInvalid());
+
+    $services->set(FormUiThemeUiAssetsExtension::class)
         ->tag('twig.extension');
 };

@@ -31,8 +31,10 @@ Add the [symfinity/recipes](https://github.com/symfinity/recipes) Flex endpoint 
 
 ## Installation
 ```bash
-composer require symfinity/form-ui-extensions-bundle
+composer require symfinity/form-ui-extensions-bundle symfinity/ux-blocks-form
 ```
+
+The theme bridge auto-injects ux-blocks inline CSS on `form_start` — ui-kernel optional for full theming. See [Quick start](docs/quickstart.md).
 
 ## Documentation
 - **[Quick start](docs/quickstart.md)** — minimal setup path

@@ -2,7 +2,8 @@
 
 {% block form_start -%}
     {%- set form_ui = form.vars.symfinity_form_ui|default({}) -%}
-    {%- if form is rootform -%}
+        {%- if form is rootform -%}
+        {{ form_ui_extensions_ui_assets()|raw }}
         <form name="{{ name }}" method="{{ method|lower }}" action="{{ action }}"{% if form_ui.novalidate|default(false) %} novalidate="novalidate"{% endif %}{% for attrname, attrvalue in attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}
         {%- if form_ui.wizard.enabled|default(false) -%}
             data-ui-wizard="1"

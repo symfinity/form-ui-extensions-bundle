@@ -27,7 +27,9 @@ Full key catalog: [contracts/form-view-vars-catalog.md](contracts/form-view-vars
 
 ## ux-blocks theme rendering
 
-With `symfinity_form_ui.theme.enabled: true`, Symfony delegates widgets to ux-blocks Twig components per the type map. Unmapped types fall back to `form_div_layout`.
+When `theme.enabled` is true, Symfony delegates widgets to ux-blocks Twig components per the type map. Unmapped types fall back to `form_div_layout`.
+
+The theme bridge calls `form_ui_extensions_ui_assets()` on each root `form_start` — core + form tier CSS inline once per request. No host `importmap.php` entry or layout paste required for baseline styling.
 
 ```twig
 {{ form_start(form) }}
@@ -59,7 +61,7 @@ Field-level uppercase transformer via `FormUiOptionKeys::UPPERCASE`.
 
 | Package | Enables |
 |---------|---------|
-| [symfinity/ui-kernel](https://packagist.org/packages/symfinity/ui-kernel) | Full design-token CSS (Chameleon look) |
+| [symfinity/ui-kernel](https://packagist.org/packages/symfinity/ui-kernel) | Full design-token CSS (Chameleon look) beyond inline tier CSS |
 
 `theme.live_date` and `theme.live_tags` require optional live-tier UX Blocks widgets (not published on Packagist yet).
 
@@ -67,7 +69,7 @@ Field-level uppercase transformer via `FormUiOptionKeys::UPPERCASE`.
 
 - Installing without `symfinity/ux-blocks-form` fails at Composer resolve time (hard require).
 - Live theme flags without live-tier widgets installed may render incorrectly — keep flags `false` unless those widgets are present.
-- See [Troubleshooting](troubleshooting.md) for Flex recipe and theme issues.
+- Unstyled fields with missing `id="ux-blocks-core-css"` — confirm `theme.enabled: true` and ux-blocks-form is installed; see [Troubleshooting](troubleshooting.md).
 
 ## See also
 
