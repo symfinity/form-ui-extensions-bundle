@@ -1,0 +1,709 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Cannot access offset ''enabled'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: src/DependencyInjection/FormUiExtensionsExtension.php
+
+		-
+			message: '#^Cannot access offset ''live_date'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/DependencyInjection/FormUiExtensionsExtension.php
+
+		-
+			message: '#^Cannot access offset ''live_tags'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/DependencyInjection/FormUiExtensionsExtension.php
+
+		-
+			message: '#^Cannot access offset ''wrapper'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/DependencyInjection/FormUiExtensionsExtension.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: src/DependencyInjection/FormUiExtensionsExtension.php
+
+		-
+			message: '#^Parameter \#1 \$existing of method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\FormUiStateMerger\:\:merge\(\) expects array\<string, mixed\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/Extension/ButtonMetadataTypeExtension.php
+
+		-
+			message: '#^Cannot access offset ''allow_delete'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Form/Extension/CollectionUxTypeExtension.php
+
+		-
+			message: '#^Cannot access offset ''collection'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Form/Extension/CollectionUxTypeExtension.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 2
+			path: src/Form/Extension/CollectionUxTypeExtension.php
+
+		-
+			message: '#^Parameter \#1 \$existing of method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\FormUiStateMerger\:\:merge\(\) expects array\<string, mixed\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/Extension/CollectionUxTypeExtension.php
+
+		-
+			message: '#^Parameter \#1 \$existing of method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\FormUiStateMerger\:\:mergeSlice\(\) expects array\<string, mixed\>, array given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Form/Extension/CollectionUxTypeExtension.php
+
+		-
+			message: '#^Call to function assert\(\) with true will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Form/Extension/DateRangeTypeExtension.php
+
+		-
+			message: '#^Instanceof between Symfony\\Component\\Form\\FormView and Symfony\\Component\\Form\\FormView will always evaluate to true\.$#'
+			identifier: instanceof.alwaysTrue
+			count: 1
+			path: src/Form/Extension/DateRangeTypeExtension.php
+
+		-
+			message: '#^Method Symfinity\\FormUiExtensionsBundle\\Form\\Extension\\DateRangeTypeExtension\:\:assertChildField\(\) has parameter \$form with generic interface Symfony\\Component\\Form\\FormInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Form/Extension/DateRangeTypeExtension.php
+
+		-
+			message: '#^Parameter \#1 \$existing of method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\FormUiStateMerger\:\:merge\(\) expects array\<string, mixed\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/Extension/DateRangeTypeExtension.php
+
+		-
+			message: '#^Parameter \#1 \$existing of method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\FormUiStateMerger\:\:mergeSlice\(\) expects array\<string, mixed\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/Extension/DateRangeTypeExtension.php
+
+		-
+			message: '#^Parameter \#1 \$name of method Symfony\\Component\\Form\\FormInterface\<mixed\>\:\:get\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Form/Extension/DateRangeTypeExtension.php
+
+		-
+			message: '#^Parameter \#1 \$name of method Symfony\\Component\\Form\\FormInterface\<mixed\>\:\:has\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Form/Extension/DateRangeTypeExtension.php
+
+		-
+			message: '#^Parameter \#2 \$fieldName of method Symfinity\\FormUiExtensionsBundle\\Form\\Extension\\DateRangeTypeExtension\:\:markPairedField\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Form/Extension/DateRangeTypeExtension.php
+
+		-
+			message: '#^Parameter \#2 \$name of method Symfinity\\FormUiExtensionsBundle\\Form\\Extension\\DateRangeTypeExtension\:\:assertChildField\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Form/Extension/DateRangeTypeExtension.php
+
+		-
+			message: '#^Parameter \#4 \$partnerName of method Symfinity\\FormUiExtensionsBundle\\Form\\Extension\\DateRangeTypeExtension\:\:markPairedField\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Form/Extension/DateRangeTypeExtension.php
+
+		-
+			message: '#^Parameter \#1 \$existing of method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\FormUiStateMerger\:\:merge\(\) expects array\<string, mixed\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/Extension/ErrorSummaryTypeExtension.php
+
+		-
+			message: '#^Parameter \#3 \$options of method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\ErrorSummaryBuilder\:\:build\(\) expects array\{enabled\: bool, link_to_fields\: bool, global_target_id\: string\}, non\-empty\-array\<mixed\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/Extension/ErrorSummaryTypeExtension.php
+
+		-
+			message: '#^Method Symfinity\\FormUiExtensionsBundle\\Form\\Extension\\FieldGroupTypeExtension\:\:hasChildErrors\(\) has parameter \$form with generic interface Symfony\\Component\\Form\\FormInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Form/Extension/FieldGroupTypeExtension.php
+
+		-
+			message: '#^Parameter \#1 \$existing of method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\FormUiStateMerger\:\:merge\(\) expects array\<string, mixed\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/Extension/FieldGroupTypeExtension.php
+
+		-
+			message: '#^Parameter \#1 \$existing of method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\FormUiStateMerger\:\:merge\(\) expects array\<string, mixed\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/Extension/NovalidateStrategyTypeExtension.php
+
+		-
+			message: '#^Parameter \#1 \$existing of method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\FormUiStateMerger\:\:merge\(\) expects array\<string, mixed\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/Extension/UploadUxTypeExtension.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: src/Form/Extension/UppercaseNormalizationTypeExtension.php
+
+		-
+			message: '#^Parameter \#1 \$existing of method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\FormUiStateMerger\:\:merge\(\) expects array\<string, mixed\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/Extension/UppercaseNormalizationTypeExtension.php
+
+		-
+			message: '#^Cannot access offset ''wizard'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Form/Extension/WizardTypeExtension.php
+
+		-
+			message: '#^Parameter \#1 \$existing of method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\FormUiStateMerger\:\:merge\(\) expects array\<string, mixed\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/Extension/WizardTypeExtension.php
+
+		-
+			message: '#^Parameter \#1 \$existing of method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\FormUiStateMerger\:\:mergeSlice\(\) expects array\<string, mixed\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/Extension/WizardTypeExtension.php
+
+		-
+			message: '#^Parameter \#1 \$wizard of method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\WizardStateResolver\:\:resolveRootState\(\) expects array\{enabled\: bool, steps\: list\<array\{id\: string, label\: string, description\: string\|null, field_names\: list\<string\>\}\>, linear\: bool, initial_step\: int\}, non\-empty\-array\<mixed\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/Extension/WizardTypeExtension.php
+
+		-
+			message: '#^Call to function assert\(\) with true will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Form/Resolver/ErrorSummaryBuilder.php
+
+		-
+			message: '#^Instanceof between Symfony\\Component\\Form\\FormError and Symfony\\Component\\Form\\FormError will always evaluate to true\.$#'
+			identifier: instanceof.alwaysTrue
+			count: 1
+			path: src/Form/Resolver/ErrorSummaryBuilder.php
+
+		-
+			message: '#^Instanceof between Symfony\\Component\\Form\\FormView and Symfony\\Component\\Form\\FormView will always evaluate to true\.$#'
+			identifier: instanceof.alwaysTrue
+			count: 1
+			path: src/Form/Resolver/ErrorSummaryBuilder.php
+
+		-
+			message: '#^Method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\ErrorSummaryBuilder\:\:build\(\) has parameter \$form with generic interface Symfony\\Component\\Form\\FormInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Form/Resolver/ErrorSummaryBuilder.php
+
+		-
+			message: '#^Method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\ErrorSummaryBuilder\:\:collectFieldErrors\(\) has parameter \$form with generic interface Symfony\\Component\\Form\\FormInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Form/Resolver/ErrorSummaryBuilder.php
+
+		-
+			message: '#^Method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\WizardStateResolver\:\:assertFieldNamesExist\(\) has parameter \$form with generic interface Symfony\\Component\\Form\\FormInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Form/Resolver/WizardStateResolver.php
+
+		-
+			message: '#^Method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\WizardStateResolver\:\:resolveInvalidSteps\(\) has parameter \$form with generic interface Symfony\\Component\\Form\\FormInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Form/Resolver/WizardStateResolver.php
+
+		-
+			message: '#^Method Symfinity\\FormUiExtensionsBundle\\Form\\Resolver\\WizardStateResolver\:\:resolveRootState\(\) has parameter \$form with generic interface Symfony\\Component\\Form\\FormInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Form/Resolver/WizardStateResolver.php
+
+		-
+			message: '#^Call to method path\(\) on an unknown class Symfony\\Bundle\\TwigBundle\\DependencyInjection\\Configurator\\TwigConfigurator\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/FormUiExtensionsBundle.php
+
+		-
+			message: '#^Parameter \$configurator of method Symfinity\\FormUiExtensionsBundle\\FormUiExtensionsBundle\:\:configureTwig\(\) has invalid type Symfony\\Bundle\\TwigBundle\\DependencyInjection\\Configurator\\TwigConfigurator\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/FormUiExtensionsBundle.php
+
+		-
+			message: '#^Cannot access offset ''allow_add'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Integration/Form/CollectionUxTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''allow_delete'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Integration/Form/CollectionUxTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''collection'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 5
+			path: tests/Integration/Form/CollectionUxTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''count'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Integration/Form/CollectionUxTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''empty_state'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/CollectionUxTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''enabled'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/CollectionUxTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''row_id'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Integration/Form/CollectionUxTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''row_index'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Integration/Form/CollectionUxTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''date_range'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 4
+			path: tests/Integration/Form/DateRangeTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''enabled'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/DateRangeTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''end_name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/DateRangeTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''partner_name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Integration/Form/DateRangeTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''preset'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/DateRangeTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''range_error'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/DateRangeTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''range_error_message'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/DateRangeTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''role'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Integration/Form/DateRangeTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''start_name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/DateRangeTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''enabled'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/ErrorSummaryTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''error_count'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/ErrorSummaryTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''errors'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Integration/Form/ErrorSummaryTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''field_group'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/ErrorSummaryTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''global'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Integration/Form/ErrorSummaryTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''group_id'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/ErrorSummaryTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''has_errors'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/ErrorSummaryTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''invalid'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/ErrorSummaryTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''legend'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/ErrorSummaryTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''message'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/ErrorSummaryTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/ErrorSummaryTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''summary'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Integration/Form/ErrorSummaryTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset 0 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Integration/Form/ErrorSummaryTypeExtensionTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertCount\(\) expects Countable\|iterable, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: tests/Integration/Form/ErrorSummaryTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''button_metadata'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Integration/Form/FormUiExtensionsIntegrationTest.php
+
+		-
+			message: '#^Cannot access offset ''enabled'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Integration/Form/FormUiExtensionsIntegrationTest.php
+
+		-
+			message: '#^Cannot access offset ''intent'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/FormUiExtensionsIntegrationTest.php
+
+		-
+			message: '#^Cannot access offset ''mode'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/FormUiExtensionsIntegrationTest.php
+
+		-
+			message: '#^Cannot access offset ''novalidate'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/FormUiExtensionsIntegrationTest.php
+
+		-
+			message: '#^Cannot access offset ''novalidate_strategy'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/FormUiExtensionsIntegrationTest.php
+
+		-
+			message: '#^Cannot access offset ''uppercase'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/FormUiExtensionsIntegrationTest.php
+
+		-
+			message: '#^Cannot access offset ''controller'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/UploadUxTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''enabled'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/UploadUxTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''max_size'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/UploadUxTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''progress'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/UploadUxTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''status'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/UploadUxTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''upload'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/UploadUxTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''email'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/WizardTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''enabled'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/WizardTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''field_step_map'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Integration/Form/WizardTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''invalid_steps'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/WizardTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/WizardTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''step_count'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/WizardTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''step_index'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/WizardTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''steps'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Integration/Form/WizardTypeExtensionTest.php
+
+		-
+			message: '#^Cannot access offset ''wizard'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 3
+			path: tests/Integration/Form/WizardTypeExtensionTest.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_column expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Integration/Form/WizardTypeExtensionTest.php
+
+		-
+			message: '#^Call to an undefined method object\:\:render\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: tests/Integration/FormThemeBridgeIntegrationTest.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 2
+			path: tests/Integration/FormThemeBridgeIntegrationTest.php
+
+		-
+			message: '#^Method Symfinity\\FormUiExtensionsBundle\\Tests\\Integration\\FormThemeBridgeIntegrationTest\:\:createKernel\(\) has parameter \$options with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Integration/FormThemeBridgeIntegrationTest.php
+
+		-
+			message: '#^Method Symfinity\\FormUiExtensionsBundle\\Tests\\Integration\\FormThemeBridgeIntegrationTest\:\:itMapsCommonSymfonyFieldTypes\(\) has parameter \$needles with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Integration/FormThemeBridgeIntegrationTest.php
+
+		-
+			message: '#^Method Symfinity\\FormUiExtensionsBundle\\Tests\\Integration\\FormThemeBridgeIntegrationTest\:\:itMapsCommonSymfonyFieldTypes\(\) has parameter \$options with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Integration/FormThemeBridgeIntegrationTest.php
+
+		-
+			message: '#^Method Symfinity\\FormUiExtensionsBundle\\Tests\\Integration\\FormThemeBridgeIntegrationTest\:\:mappedFieldTypeProvider\(\) return type has no value type specified in iterable type iterable\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Integration/FormThemeBridgeIntegrationTest.php
+
+		-
+			message: '#^Method Symfinity\\FormUiExtensionsBundle\\Tests\\Integration\\FormThemeBridgeIntegrationTest\:\:renderForm\(\) has parameter \$builder with generic interface Symfony\\Component\\Form\\FormInterface but does not specify its types\: TData$#'
+			identifier: missingType.generics
+			count: 1
+			path: tests/Integration/FormThemeBridgeIntegrationTest.php
+
+		-
+			message: '#^Parameter \#1 \$environment of class Symfinity\\FormUiExtensionsBundle\\Tests\\Integration\\FormUiBridgeTestKernel constructor expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Integration/FormThemeBridgeIntegrationTest.php
+
+		-
+			message: '#^Parameter \#1 \$needle of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Integration/FormThemeBridgeIntegrationTest.php
+
+		-
+			message: '#^Parameter \#2 \$type of method Symfony\\Component\\Form\\FormBuilderInterface\<mixed\>\:\:add\(\) expects class\-string\<Symfony\\Component\\Form\\FormTypeInterface\>\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Integration/FormThemeBridgeIntegrationTest.php
+
+		-
+			message: '#^Parameter \#3 \$options of method Symfony\\Component\\Form\\FormBuilderInterface\<mixed\>\:\:add\(\) expects array\<string, mixed\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Integration/FormThemeBridgeIntegrationTest.php
+
+		-
+			message: '#^Method Symfinity\\FormUiExtensionsBundle\\Tests\\Integration\\FormUiBridgeTestKernel\:\:registerBundles\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/Integration/FormUiBridgeTestKernel.php
+
+		-
+			message: '#^Offset ''enabled'' might not exist on array\{enabled\: bool, steps\: list\<array\{id\: string, label\: string, description\: string\|null, field_names\: list\<string\>\}\>, linear\: bool, initial_step\: int\}\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/Unit/Form/Option/WizardOptionParserTest.php
+
+		-
+			message: '#^Cannot access offset ''button_metadata'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/Form/Resolver/FormUiStateMergerTest.php
+
+		-
+			message: '#^Cannot access offset ''collection'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/Form/Resolver/FormUiStateMergerTest.php
+
+		-
+			message: '#^Cannot access offset ''count'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/Form/Resolver/FormUiStateMergerTest.php
+
+		-
+			message: '#^Cannot access offset ''enabled'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: tests/Unit/Form/Resolver/FormUiStateMergerTest.php
+
+		-
+			message: '#^Cannot access offset ''novalidate'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/Form/Resolver/FormUiStateMergerTest.php
+
+		-
+			message: '#^Cannot access offset ''row_id'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/Form/Resolver/FormUiStateMergerTest.php
+
+		-
+			message: '#^Cannot access offset ''row_index'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/Form/Resolver/FormUiStateMergerTest.php
+
+		-
+			message: '#^Cannot access offset ''wizard'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/Unit/Form/Resolver/FormUiStateMergerTest.php
