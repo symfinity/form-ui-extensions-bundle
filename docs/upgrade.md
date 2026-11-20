@@ -67,6 +67,16 @@ After upgrade:
 3. Optional `symfinity/ui-kernel` remains recommended for full design-token theming beyond inline tier CSS.
 4. Clear Symfony cache if Twig form themes were cached in dev.
 
+## 0.1.4
+
+Patch release after 0.1.3. `form_end` prints fields not rendered yet, including a hidden CSRF token, unless the template sets `render_rest` to false. A row, checkbox, radio, or collection without an explicit label shows `label_format` or the humanized field name. `label: false` still prints no label. No FormView variable names or `symfinity_form_ui` keys changed. Dev installs require `symfinity/ui-kernel` `^0.3`.
+
+```bash
+composer update symfinity/form-ui-extensions-bundle
+```
+
+Clear the Symfony cache if Twig form themes were cached in dev.
+
 ## See also
 
 [Configuration](configuration.md) · [Installation](installation.md)

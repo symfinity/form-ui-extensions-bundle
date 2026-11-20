@@ -29,6 +29,10 @@
 
 {% block form_end -%}
     {%- if form is rootform -%}
+        {#- Same contract as Symfony's form_div_layout: print fields not rendered yet (e.g. the CSRF token). -#}
+        {%- if render_rest is not defined or render_rest -%}
+            {{- form_rest(form) -}}
+        {%- endif -%}
         </form>
     {%- else -%}
         {{- parent() -}}
@@ -37,6 +41,20 @@
 
 {% block form_label -%}
 {%- endblock form_label %}
+
+{#- Label text for the row blocks: the explicit label, else label_format, else the humanized field name
+    (Symfony's form_label fallback). Rows print it only when label is not false. -#}
+{% block form_ui_label_text -%}
+    {%- if label is empty -%}
+        {%- if label_format is not empty -%}
+            {{- label_format|replace({'%name%': name, '%id%': id}) -}}
+        {%- else -%}
+            {{- name|humanize -}}
+        {%- endif -%}
+    {%- else -%}
+        {{- label -}}
+    {%- endif -%}
+{%- endblock form_ui_label_text %}
 
 {% block form_help -%}
 {%- endblock form_help %}
@@ -47,7 +65,7 @@
 {% block form_row -%}
     {%- set form_ui = form.vars.symfinity_form_ui|default({}) -%}
     {%- set field_group = form_ui.field_group|default({}) -%}
-    {%- set show_label = label is not same as(false) ? label : null -%}
+    {%- set show_label = label is not same as(false) ? block('form_ui_label_text')|trim : null -%}
     {%- set show_hint = help is not same as(false) and help is not empty ? help : null -%}
     {%- set error_message = errors|length > 0 ? errors[0].message : null -%}
 
@@ -65,7 +83,7 @@
             {% if not valid or error_message %}data-ui-state="invalid"{% endif %}
         >
             {%- if show_label -%}
-                <label data-ui-part="header" for="{{ id }}" id="field-label-{{ id }}">{{ show_label }}</label>
+                <label data-ui-part="header" for="{{ id }}" id="field-label-{{ id }}">{{ show_label|raw }}</label>
             {%- endif -%}
             {{- form_widget(form, {label: false, help: false, errors: []}) -}}
             {%- if error_message -%}
@@ -81,7 +99,7 @@
     <div data-ui-orientation="horizontal" data-ui-role="field" {% if not valid %}data-ui-state="invalid"{% endif %}>
         {{- form_widget(form, {label: false, help: false, errors: []}) -}}
         {%- if label is not same as(false) -%}
-            <label for="{{ id }}">{{ label }}</label>
+            <label for="{{ id }}">{{ block('form_ui_label_text')|trim|raw }}</label>
         {%- endif -%}
     </div>
 {%- endblock checkbox_row %}
@@ -90,7 +108,7 @@
     <div data-ui-orientation="horizontal" data-ui-role="field" {% if not valid %}data-ui-state="invalid"{% endif %}>
         {{- form_widget(form, {label: false, help: false, errors: []}) -}}
         {%- if label is not same as(false) -%}
-            <label for="{{ id }}">{{ label }}</label>
+            <label for="{{ id }}">{{ block('form_ui_label_text')|trim|raw }}</label>
         {%- endif -%}
     </div>
 {%- endblock radio_row %}
@@ -110,7 +128,7 @@
         data-ui-collection-prototype-name="{{ collection.prototype_name|default('__name__') }}"
     >
         {%- if label is not same as(false) -%}
-            <span data-ui-part="collection-label">{{ label }}</span>
+            <span data-ui-part="collection-label">{{ block('form_ui_label_text')|trim|raw }}</span>
         {%- endif -%}
         {{- block('form_rows') -}}
     </div>
